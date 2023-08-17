@@ -1,5 +1,4 @@
 package UTN.datos;
-
 import UTN.dominio.Estudiante;
 import static UTN.conexion.Conexion.getConnection;
 
@@ -144,6 +143,12 @@ public class EstudianteDAO {
         } catch (Exception e){
             System.out.println("Error al eliminar estudiante: "+e.getMessage());
         }
+        finally {
+            try{
+                con.close();
+            } catch (Exception e){
+                System.out.println("Error al cerrar la conexión: " + e.getMessage());
+            }
     }
     return false;
 }
