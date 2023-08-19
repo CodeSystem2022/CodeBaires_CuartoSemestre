@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22a176cc-2e64-45dc-845f-c13b8eb8f66a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/capa_datos_persona/cursor_del_pool.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,7 +36,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/et5or/CodeBaires_TercerSemestre/Tecnicatura3Python/Leccion11",
+    "last_opened_file_path": "C:/Users/PC/CodeBaires_CuartoSemestre/Python/Leccion01",
+    "run.code.analysis.last.selected.profile": "aDefault",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
