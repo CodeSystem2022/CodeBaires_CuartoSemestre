@@ -34,20 +34,19 @@ class UsuarioDAO:
             cursor.execute(cls._INSERTAR, valores)
             return cursor.rowcount
 
-   @classmethod
-   def actualizar(cls, usuario):
-    with CursorDelPool() as cursor:
-        log.debug(f'Usuario a actualizar: {usuario}')
-        valores = (usuario.username, usuario.password, usuario.id_usuario)
-        cursor.execute(cls._ACTUALIZAR, valores)
-        return cursor.rowcount
-
-   @classmethod
-   def eliminar(cls, usuario):
-       with CursorDelPool() as cursor:
-           log.debug(f'Usuario a eliminar: {usuario}')
-           valores = (usuario.id_usuario,)
-           cursor.execute(cls._ELIMINAR, valores)
-           return cursor.rowcount
+    @classmethod
+    def actualizar(cls, usuario):
+        with CursorDelPool() as cursor:
+            log.debug(f'Usuario a actualizar: {usuario}')
+            valores = (usuario.username, usuario.password, usuario.id_usuario)
+            cursor.execute(cls._ACTUALIZAR, valores)
+            return cursor.rowcount
 
 
+    @classmethod
+    def eliminar(cls, usuario):
+        with CursorDelPool() as cursor:
+            log.debug(f'Usuario a eliminar: {usuario}')
+            valores = (usuario.id_usuario,)
+            cursor.execute(cls._ELIMINAR, valores)
+            return cursor.rowcount
