@@ -1,4 +1,4 @@
-from capa_datos_persona.usuario_dao import UsuarioDao
+from capa_datos_persona.usuario_dao import UsuarioDAO
 from capa_datos_persona.Usuario import Usuario
 
 from logger_base import log
@@ -21,7 +21,7 @@ while opcion != 5:
         username_var = input('Digite el nombre de usuario: ')
         password_var = input('Digite su contraseña: ')
         usuario = Usuario(username=username_var, password=password_var)
-        usuario_insertado = UsuarioDao.insertar(usuario)
+        usuario_insertado = UsuarioDAO.insertar(usuario)
         log.info(f'Usuario insertado: {usuario_insertado}')
     elif opcion == 3:
         id_usuario_var = int(input('Digite el id del usuario a modificar: '))
@@ -33,7 +33,7 @@ while opcion != 5:
     elif opcion == 4:
         id_usuario_var = int(input('Digite el id del usuario a eliminar: '))
         usuario = Usuario(id_usuario_var=id_usuario_var)
-        usuario_eliminado = UsuarioDao.eliminar(usuario)
+        usuario_eliminado = UsuarioDAO.eliminar(usuario)
         log.info(f'Usuario eliminado: {usuario_eliminado}')
 else:
     log.info('Salimos de la aplicación. Hasta pronto!')
