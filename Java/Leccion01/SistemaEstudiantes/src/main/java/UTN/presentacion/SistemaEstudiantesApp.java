@@ -21,4 +21,19 @@ public class SistemaEstudiantesApp{
             }
         }//Fin while
 
-}//Fin main
+    }//Fin main
+
+    //Metodo mostrar menu
+    private static void mostrarMenu() { // es privado y estatico
+        System.out.println("""
+                **** SIstema de estudiantes ****
+                1. Listar estudiantes
+                2. BUscar estudiantes
+                3. Agregar estudiante
+                4. Modificar estudiante
+                5. Eliminar estudiante
+                6. Salir
+                Elige una opcion:                                                   
+                """);
+    }//fin menu
+}//fin class
