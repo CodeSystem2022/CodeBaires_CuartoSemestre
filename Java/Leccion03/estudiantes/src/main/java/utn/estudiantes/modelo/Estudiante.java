@@ -17,14 +17,12 @@ import lombok.ToString;
 @NoArgsConstructor //Constructor sin argumetos
 @AllArgsConstructor //Constructor con todos los argumentos
 @ToString //Metodos to String
-
 public class Estudiante {
     @Id // Agrega el orden de llave primaria
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idEstudiante;
-    private  String nombre;
+    private String nombre;
     private String apellido;
     private String telefono;
     private String email;
-
 }
