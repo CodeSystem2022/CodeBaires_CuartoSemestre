@@ -32,8 +32,8 @@ Se detalla los Scrum Master asignados para cada Sprint
 | ------------- | ------------- | -------------
 | :computer: Sprint_1  | Yamila Carlucci  | [Release_Sprint1](https://github.com/CodeSystem2022/CodeBaires_CuartoSemestre/releases/tag/Sprint_1)
 | :computer: Sprint_2  | Lorena Rodriguez | [Release_Sprint2](https://github.com/CodeSystem2022/CodeBaires_CuartoSemestre/releases/tag/Sprint_2)
-| :computer: Sprint_3  | Rosalía Lotierzo |
-| :computer: Sprint_4  |   |
+| :computer: Sprint_3  | Rosalía Lotierzo | [Release_Sprint3](https://github.com/CodeSystem2022/CodeBaires_CuartoSemestre/releases/tag/Sprint_3)
+| :computer: Sprint_4  | Emmanuel Toro |
 | :computer: Sprint_5  |   |
 | :computer: Sprint_6  |   |
 | :computer: Sprint_7  |   |
