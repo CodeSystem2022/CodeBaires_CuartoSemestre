@@ -11,7 +11,7 @@ const displayCart = ()=>{
     const modalHeader = document.createElement("div");
 
     const modalClose = document.createElement("div");
-    modalClose.innerText ="❌"
+    modalClose.innerText ="❌";
     modalClose.className = "modal-close";
     modalHeader.append(modalClose);
 
@@ -26,38 +26,38 @@ const displayCart = ()=>{
     modalHeader.append(modalTitle);
 
     modalContainer.append(modalHeader);
-    //MODAL body
+
+    //modal Body
     cart.forEach((product) => {
-    const modalBody = document.createElement("div");
-    modalBody.className = "modal-body"
-    modalBody.innerHTML =    
-    <div Class="product">
-        <img class="product-img" scr="${product.img}" />
-        <div class="product-info">
-            <h4>${product.productName}<h4>
-        </div>
-    <div class="quantity">
-        <span class="quantity-btn-decrese">-</span>
-        <span class="quantity-input">${product.quanty}</span>
-        <span class="quantity-btn-increse">+</span>
-    </div>
-        <div class="price">${product.price * product.quanty} $</div>
-        <div class="delete-product">❌</div>
-      </div>
-       ;
-       modalContainer.append(modalBody);
+        const modalBody = document.createElement("div");
+        modalBody.className = "modal-body";
+        modalBody.innerHTML = `
+        <div class="product">
+            <img class="product-img" src="${product.img}" />
+            <div class="product-info">
+                <h4>${product.productName}</h4>
+            </div>
+            <div class="quantity">
+                <span class="quantity-btn-decrease">-</span>
+                <span class="quantity-input">${product.quantity}</span>
+                <span class="quantity-btn-increase">+</span>
+            </div>
+                <div class="price">${product.price * product.quantity} $</div>
+                <div class="delete-product">❌</div>
+            </div>
+        `;
+        modalContainer.append(modalBody);
     });
 
-    //modal fotter
+    //modal footter
 
     const modalFooter = document.createElement("div");
-    modalFooter.className = "modal-footer"
-    modalFooter.innerHTML = 
-    <div class="total-price">Total:)</div>
-
-    ;
-    modalContainer.append("modalFooter");
+    modalFooter.className = "modal-footer";
+    modalFooter.innerHTML = `
+    <div class="total-price"> Total :) </div>
+    `;
+    modalContainer.append(modalFooter);
 };
 
 
-cartBtn.addEventListener("click",displayCart);
+cartBtn.addEventListener("click", displayCart);
