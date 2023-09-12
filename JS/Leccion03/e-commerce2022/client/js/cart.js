@@ -47,6 +47,20 @@ const displayCart = ()=>{
             </div>
         `;
         modalContainer.append(modalBody);
+
+        const decrease = modalBody.querySelector(".quantity-btn-decrease");
+        decrease.addEventListener("click", () => {
+            if(product.quantity !== 1){
+                product.quantity --;
+                displayCart();
+            }
+        })
+
+        const increase = modalBody.querySelector(".quantity-btn-increase");
+        increase.addEventListener("click", () => {
+            product.quantity ++;
+            displayCart();
+        })
     });
 
     //modal footter
