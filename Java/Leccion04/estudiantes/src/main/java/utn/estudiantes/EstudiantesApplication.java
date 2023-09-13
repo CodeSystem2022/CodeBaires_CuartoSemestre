@@ -17,12 +17,18 @@ public class EstudiantesApplication implements CommandLineRunner{
 	private EstudianteServicio estudianteServicio;
 	private static final Logger logger = LoggerFactory.getLogger(EstudiantesApplication.class);
 
+	String nl = System.lineSeparator();
+
 	public static void main(String[] args) {
+		logger.info("Iniciando la aplicacion...");
+		// levantar la fabrica de Spring
 		SpringApplication.run(EstudiantesApplication.class, args);
+		logger.info("Aplicacion finalizada!");
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
+		logger.info("Ejecutando el método run de Spring...");
 
 	}
 
