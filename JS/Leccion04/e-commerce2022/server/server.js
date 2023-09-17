@@ -1,22 +1,23 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const mercadopago = require("path");
+const mercadopago = require("mercadopago");
+const path = require("path");
 
 // REPLACE WITH YOUR ACCESS TOKEN AVAILABLE IN: https://developers.mercadopago.com/panel
 mercadopago.configure({
-	access_token: "<ACCESS_TOKEN>",
+	access_token: "TEST-2559386050472488-091712-1d0b77b2997029e6d625b24bd8d90198-78655666",
 });
 
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.use(express.static(path.join(__dirname, "../client")));
+app.use(express.static(path.join(__dirname, '../client')));
 app.use(cors());
 
 app.get("/", function () {
-	path.resolve(__dirname, "..", "client", "index.html");
+    path.resolve(__dirname, "..", "client"), "index.html";
 });
 
 app.post("/create_preference", (req, res) => {
