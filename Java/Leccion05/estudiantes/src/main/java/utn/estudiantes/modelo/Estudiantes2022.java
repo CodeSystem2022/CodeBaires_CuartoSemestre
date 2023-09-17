@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 
+
 @Entity //Indica que la clase es una clase entidad = Tabla de datos
 //boilerplate - CodigoRepetitivo  (Son los codigos de constructores)
 @Data //Genera los metodos get y set
