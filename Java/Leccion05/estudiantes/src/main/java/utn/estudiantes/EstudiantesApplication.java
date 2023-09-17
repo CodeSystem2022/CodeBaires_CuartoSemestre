@@ -7,14 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import utn.estudiantes.modelo.Estudiantes2022;
 import utn.estudiantes.servicio.EstudianteServicio;
 
+import java.util.List;
 import java.util.Scanner;
 
 
 @SpringBootApplication
 public class EstudiantesApplication implements CommandLineRunner{
-
 	@Autowired
 	private EstudianteServicio estudianteServicio;
 	private static final Logger logger = LoggerFactory.getLogger(EstudiantesApplication.class);
@@ -40,8 +41,34 @@ public class EstudiantesApplication implements CommandLineRunner{
 		switch (opcion){
 			case 1 -> {//Listar estudiantes
 				logger.info(nl+"Listado de estudiantes: "+nl);
-				List<Estudiantes2022> estudiantes = estudianteServicio.ListarEstudiantes();
+				List<Estudiantes2022> estudiantes = estudianteServicio.listarEstudiantes();
 				estudiantes.forEach((estudiante -> logger.info(estudiante.toString()+nl)));
+			}
+			case 4 -> {//Modificar estudiantes
+				logger.info("Modificar estudiante: ");
+				logger.info("Ingrese el id estudiante: ");
+				var idEstudiante = Integer.parseInt(consola.nextLine());
+				//buscamos el estudiante a modificar
+				Estudiantes2022 estudiante = estudianteServicio.buscarEstudiantePorId(idEstudiante);
+				if(estudiante != null){
+					logger.info("Nombre: ");
+					var nombre = consola.nextLine();
+					logger.info("Apellido: ");
+					var apellido = consola.nextLine();
+					logger.info("Teléfono: ");
+					var telefono = consola.nextLine();
+					logger.info("Email: ");
+					var email = consola.nextLine();
+					estudiante.setNombre(nombre);
+					estudiante.setApellido(apellido);
+					estudiante.setTelefono(telefono);
+					estudiante.setEmail(email);
+					estudianteServicio.guardarEstudiante(estudiante);
+					logger.info("Estudiante modificado: " + estudiante + nl);
+
+				}
+				else
+					logger.info("Estudiante NO encontrado con el id: " + idEstudiante + nl);
 			}
 		}//Fin switch
 		return salir;
