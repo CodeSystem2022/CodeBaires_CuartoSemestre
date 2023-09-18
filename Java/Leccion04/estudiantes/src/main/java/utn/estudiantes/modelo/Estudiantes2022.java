@@ -17,7 +17,7 @@ import lombok.ToString;
 @NoArgsConstructor //Constructor sin argumetos
 @AllArgsConstructor //Constructor con todos los argumentos
 @ToString //Metodos to String
-public class Estudiante {
+public class Estudiantes2022 {
     @Id // Agrega el orden de llave primaria
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idEstudiante;
