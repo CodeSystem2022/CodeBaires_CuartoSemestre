@@ -156,5 +156,16 @@ cartBtn.addEventListener("click", displayCart);
 
 const deleteCartProduct =(id)=>{
     const foundId = cart.findIndex((element)=> element.id === id);
-    console.log(foundId);
+    cart.splice(foundId,1);
+    displayCart();
+    displayCartcounter();
 };
+const displayCartcounter = () => {
+    const cartLengh = cart.reduce( (acc, el) => acc + el.quanty, 0);
+    if(cartLengh > 0){
+     cartCounter.style.display = "block"
+    cartCounter.innerText = cartLengh;
+    }else{
+        cartCounter.style.display = "none";
+    }      
+};      
