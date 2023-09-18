@@ -6,8 +6,9 @@ mensaje = ' Hola ' + 'Alumnos'+ variable # concatenamos
 mensaje += ' ,Terminamos'
 print(mensaje)
 
-# Usamos el metodo help y consultamos por la clase str (String) para solicitar ayuda o documentacion (built-in)
+# Usamosla el metodo help con la clase String para obtener ayuda o documentacion(built-in)
 
 help(str)
+
 
 

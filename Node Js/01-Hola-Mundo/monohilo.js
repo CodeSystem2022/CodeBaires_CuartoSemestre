@@ -7,3 +7,4 @@ setInterval(function() {
     i++;
     
 }, 1000);
+console.log('Segunda instruccion');
