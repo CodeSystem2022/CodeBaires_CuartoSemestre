@@ -28,6 +28,7 @@ const displayCart = ()=>{
     modalContainer.append(modalHeader);
 
     //modal Body
+    if (cart.length > 0){
     if (cart.length > 0){ 
     cart.forEach((product) => {
         const modalBody = document.createElement("div");
@@ -83,7 +84,12 @@ const displayCart = ()=>{
 
     `;
     modalContainer.append(modalFooter);
-    // mp;
+    }else {
+        const modalText = document.createElement("h2")
+        modalClose.className = "modal-body";
+        modalText.innerText = "your cart is empty"
+        modalContainer.append(modalText);
+    }
     const mercadopago = new MercadoPago ("public_key",{
         locale: "es-AR", //Los mas comunes son: 'pt-BR','es-AR','en-US'
     });
