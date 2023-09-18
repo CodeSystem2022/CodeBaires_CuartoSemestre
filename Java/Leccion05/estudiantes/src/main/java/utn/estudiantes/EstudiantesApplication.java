@@ -32,8 +32,27 @@ public class EstudiantesApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		logger.info(nl+"Ejecutando el método run de Spring..."+nl);
+        var salir = falsse;
+        var consola = new Scanner(System.in);
+        while(!salir){
+            mostrarMenu();
+            salir = ejecutarOpciones(consola);
+            logger.info(nl);
+        }//fin ciclo while
 
 	}
+    private void mostrarMenu(){
+        logger.info(nl);
+        logger.info("""
+               ****** Sistemade  de Estudiantes *******
+               1.Listar Estudiantes
+               2. Buscar Estudiantes
+               3. Agregar Estudiantes
+               4. Modificar Estudiantes
+               5. Eliminar Estudiante
+               6. Salir
+               Eliga una opcion:""");
+    }
 
 	private boolean ejecutarOpciones(Scanner consola){
 		var opcion = Integer.parseInt(consola.nextLine());
