@@ -90,7 +90,7 @@ const displayCart = ()=>{
         modalText.innerText = "your cart is empty"
         modalContainer.append(modalText);
     }
-    const mercadopago = new MercadoPago ("public_key",{
+    const mercadopago = new MercadoPago ("TEST-568e2a49-e9fd-4243-901b-06f5f59f2f95",{  // Clave public key mp
         locale: "es-AR", //Los mas comunes son: 'pt-BR','es-AR','en-US'
     });
 
