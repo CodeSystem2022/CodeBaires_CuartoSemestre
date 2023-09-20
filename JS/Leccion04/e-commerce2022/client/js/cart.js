@@ -79,9 +79,8 @@ const displayCart = ()=>{
     modalFooter.className = "modal-footer";
     modalFooter.innerHTML = `
     <div class="total-price">Total:${total}</div>
-    <button class="btn-primary" id="checkout-btn"> go to checkout</button>
+    <button class="btn-primary" id="checkout-btn">go to checkout</button>
     <div id="button-checkout"></div>
-
     `;
     modalContainer.append(modalFooter);
     }else {
@@ -90,19 +89,18 @@ const displayCart = ()=>{
         modalText.innerText = "your cart is empty"
         modalContainer.append(modalText);
     }
-    const mercadopago = new MercadoPago ("public_key",{
+    const mercadopago = new MercadoPago ("TEST-568e2a49-e9fd-4243-901b-06f5f59f2f95", {
         locale: "es-AR", //Los mas comunes son: 'pt-BR','es-AR','en-US'
     });
 
     const checkoutButton = modalFooter.querySelector("#checkout-btn");
 
     checkoutButton.addEventListener("click",function () {
-        
         checkoutButton.remove();
 
         const orderData = {
             quantity: 1,
-            description: "compra de ecommerce",
+            description: "Compra de ecommerce",
             price: total,
         };
 
@@ -111,50 +109,49 @@ const displayCart = ()=>{
             headers: {
                 "Content-Type":"application/json",
             },
-            body:JSON.stringify(orderData),
+            body: JSON.stringify(orderData),
         })
-            .then(function(response){
+            .then(function (response) {
                 return response.json();
             })
-            .then(function (preference){
+            .then(function (preference) {
                 createCheckoutButton(preference.id);
             })
-            .catch(function(){
+            .catch(function() {
                 alert("Unexpected error");
             });
-    });
+        });
 
-    function createCheckoutButton(preferenceId){
-        //Initialize the checkout
-        const bricksBuilder = mercadopago.bricks();
+        function createCheckoutButton(preferenceId){
+            //Initialize the checkout
+            const bricksBuilder = mercadopago.bricks();
 
-        const renderComponent = async(bricksBuilder) => {
+            const renderComponent = async(bricksBuilder) => {
             //if (window.checkoutButton) checkoutButton.unmount();
 
-            await bricksBuilder.create(
-                "wallet",
-                "button-checkout",//class/id where  the payment button will be displayed
-                {
-                    initialization: {
-                        preferenceId:preferenceId,
-                    },
-                    callbacks:{
-                        onError:(error)=>console.error(error),
-                        onReady: () => {},
-                    },
-                }
-            );
+                await bricksBuilder.create(
+                    "wallet",
+                    "button-checkout", //class/id where  the payment button will be displayed
+                    {
+                        initialization: {
+                            preferenceId: preferenceId,
+                        },
+                        callbacks:{
+                            onError: (error) => console.error(error),
+                            onReady: () => {},
+                        },
+                    }
+                );
+            };
+            window.checkoutButton = renderComponent(bricksBuilder);
         };
-    };
-    window.checkoutButton = renderComponent(bricksBuilder);
+    } else {
+        const modalText = document.createElement("h2");
+        modalText.className = "modal-body";
+        modalText.innerText = "your cart is empty";
+        modalContainer.append(modalText);
 
-}else {
-    const modalText = document.createElement("h2");
-    modalText.className = "modal-body";
-    modalText.innerText = "your cart is empty";
-    modalContainer.append(modalText);
-
-}
+    }
 };
 
 
@@ -167,7 +164,7 @@ const deleteCartProduct =(id)=>{
     displayCartcounter();
 };
 const displayCartcounter = () => {
-    const cartLengh = cart.reduce( (acc, el) => acc + el.quanty, 0);
+    const cartLengh = cart.reduce( (acc, el) => acc + el.quantity, 0);
     if(cartLengh > 0){
      cartCounter.style.display = "block"
     cartCounter.innerText = cartLengh;
