@@ -1,6 +1,5 @@
 package utn.estudiantes;
 
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +31,7 @@ public class EstudiantesApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		logger.info(nl+"Ejecutando el método run de Spring..."+nl);
-        var salir = falsse;
+        var salir = false;
         var consola = new Scanner(System.in);
         while(!salir){
             mostrarMenu();
@@ -63,7 +62,6 @@ public class EstudiantesApplication implements CommandLineRunner{
 				List<Estudiantes2022> estudiantes = estudianteServicio.listarEstudiantes();
 				estudiantes.forEach((estudiante -> logger.info(estudiante.toString()+nl)));
 			}
-
 			case 2 -> { // Buscar estudiante por Id
 				logger.info("Digite el id estudiante a buscar: ");
 				var idEstudiante = Integer.parseInt(consola.nextLine());
@@ -74,7 +72,6 @@ public class EstudiantesApplication implements CommandLineRunner{
 				else
 					logger.info("Estudiante no encontrado: " + estudiante + nl);
 			}
-
 			case 3 -> { //Agregar estudiante
 				logger.info("Agregar estudiante: " + nl);
 				logger.info("Nombre: ");
@@ -94,12 +91,6 @@ public class EstudiantesApplication implements CommandLineRunner{
 				estudianteServicio.guardarEstudiante(estudiante);
 				logger.info("Estudiante agregado: " + estudiante + nl);
 			}
-
-
-
-
-
-
 			case 4 -> {//Modificar estudiantes
 				logger.info("Modificar estudiante: ");
 				logger.info("Ingrese el id estudiante: ");
@@ -126,7 +117,6 @@ public class EstudiantesApplication implements CommandLineRunner{
 				else
 					logger.info("Estudiante NO encontrado con el id: " + idEstudiante + nl);
 			}
-
 			case 5 -> {//Eliminar estudiante
 				logger.info("Eliminar estudiante: " + nl);
 				logger.info("Digite el id estudiante: ");
@@ -142,7 +132,6 @@ public class EstudiantesApplication implements CommandLineRunner{
 				else
 					logger.info("Estudiante NO encontrado con id: " + estudiante + nl);
 			}
-
 			case 6 -> { //Salir
 				logger.info("Hasta pronto!" + nl + nl);
 				salir = true;

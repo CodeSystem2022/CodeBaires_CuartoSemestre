@@ -15,8 +15,8 @@ public class EstudianteServicio implements IEstudianteServicio {
 
     @Override
     public List<Estudiantes2022> listarEstudiantes() {
-        List<Estudiantes2022> estudiantes2022s = estudianteRepositorio.findAll();
-        return estudiantes2022s;
+        List<Estudiantes2022> estudiantes2022 = estudianteRepositorio.findAll();
+        return estudiantes2022;
     }
 
     @Override
