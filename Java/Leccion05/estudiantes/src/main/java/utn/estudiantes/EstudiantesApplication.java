@@ -52,7 +52,7 @@ public class EstudiantesApplication implements CommandLineRunner{
                5. Eliminar Estudiante
                6. Salir
                Eliga una opcion:""");
-    }
+    }//fin mostrarMenu
 
 	private boolean ejecutarOpciones(Scanner consola){
 		var opcion = Integer.parseInt(consola.nextLine());
