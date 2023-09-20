@@ -22,9 +22,10 @@ productos.forEach((product) =>{
             cart.map((prod)=> {
                 if(prod.id === product.id) {
                     prod.quantity++;
+                    displayCartCounter();
                 }
             });
-        }else{
+        } else {
             cart.push({
                 id: product.id,
                 productName: product.productName,
@@ -32,7 +33,7 @@ productos.forEach((product) =>{
                 quantity: product.quantity,
                 img: product.img,
             });
+            displayCartCounter();
         }
-        
     });
 });
