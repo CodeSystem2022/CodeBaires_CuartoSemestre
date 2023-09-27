@@ -1,5 +1,4 @@
 // Ponemos el codigo ser servidor
-
 import express from "express";
 import morgan from "morgan";
 
@@ -11,9 +10,10 @@ app.use(express.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => res.json({message: "Bienvenidos a mi proyecto"}));
 
-app.use((err,req , res, next) => {
-    res.status:"error",
-    message: err.message
+app.use((err, req , res, next) => {
+    res.status(500).json({
+        status: "error",
+        message: err.message
     });
 });
 
