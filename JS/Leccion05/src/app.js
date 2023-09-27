@@ -2,6 +2,7 @@
 import express from "express";
 import morgan from "morgan";
 import tareasRoutes from "./router/tareas.routes.js"
+import authRoutes from "./router/outh.router.js"
 
 const app = express();
 //Middlewares
@@ -10,7 +11,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => res.json({message: "Bienvenidos a mi proyecto"}));
-app.use("/tareas",tareasRoutes);
+app.use('/api',tareasRoutes);
+app.use('/api',authRoutes);
 
 //Manejando errores
 app.use((err, req , res, next) => {
