@@ -1,4 +1,5 @@
-import {Pool} from "pg";
+import pkg from 'pg';
+const {Pool} = pkg;
 
 export const pool = new Pool({
     port: 5432,
