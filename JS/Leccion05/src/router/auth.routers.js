@@ -12,7 +12,7 @@ router.get("/signin",profile);
 
 router.post("/signin", (req,res) =>res.send ("ingresando"));
 router.post("/signup", (req,res) =>res.send ("resgistrando"));
-router.post("/signout",(req,res) =>res.send ("Cerrando sesion));
+router.post("/signout",(req,res) =>res.send ("Cerrando sesion"));
 router.get("/profile", (req,res) =>res.send ("Perfil de usuario"));
 
 

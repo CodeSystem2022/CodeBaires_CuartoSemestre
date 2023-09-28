@@ -1,8 +1,8 @@
 // Ponemos el codigo ser servidor
 import express from "express";
 import morgan from "morgan";
-import tareasRoutes from "./router/tareas.routes.js"
-import authRoutes from "./router/outh.router.js"
+import tareasRoutes from "./router/tareas.routers.js"
+import authRoutes from "./router/auth.routers.js"
 
 const app = express();
 //Middlewares
