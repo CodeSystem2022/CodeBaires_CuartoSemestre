@@ -1,16 +1,14 @@
 {
-  "name": "PERN-stack",
+  "name": "pern-stack",
   "version": "1.0.0",
   "description": "",
   "main": "src/index.js",
-  "type": "module",
-
   "scripts": {
-    "dev": "nodemon .",
+    "dev":"nodemon .",
     "start": "node ."
   },
   "keywords": [],
-  "author":"",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "cookie-parser": "^1.4.6",
@@ -24,7 +22,7 @@
     "zod": "^3.22.2"
   },
   "devDependencies": {
-    "eslint": "^8.50.0",
+    "eslint": "^8.49.0",
     "nodemon": "^3.0.1"
   }
 }
