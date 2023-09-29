@@ -1,13 +1,13 @@
-#Metodo join para colecciones a cadenas
+# Metodo join para colecciones a cadenas
 
-#help(str.join)
+# help(str.join)
 
 
-tupla_str = ('Hola','alumnos','Tecnicatura','Universitaria')
+tupla_str = ('Hola', 'alumnos', 'Tecnicatura', 'Universitaria')
 mensaje = '-'.join(tupla_str)
 print(f'Mensaje: {mensaje}')
 
-lista_cursos = ["java","Python","Angular","Spring"]
+lista_cursos = ["java", "Python", "Angular", "Spring"]
 mensaje = ', '.join(lista_cursos)
 print(f'Mensaje: {mensaje}')
 
