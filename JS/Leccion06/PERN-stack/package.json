@@ -1,11 +1,11 @@
 {
-  "name": "leccion05",
+  "name": "pern-stack",
   "version": "1.0.0",
   "description": "",
   "main": "src/index.js",
-  "type":"module",
+  "type": "module",
   "scripts": {
-    "dev":"nodemon .",
+    "dev": "nodemon .",
     "start": "node ."
   },
   "keywords": [],
