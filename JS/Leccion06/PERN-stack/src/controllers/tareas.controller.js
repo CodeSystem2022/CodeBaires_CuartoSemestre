@@ -6,21 +6,18 @@ export const listarTarea = (req, res)=> res.send('obteniendo tarea unica');
 
 export const crearTarea = async(req, res,next)=> {
     const {titulo, descripcion } = req.body;
-
     try {
-        throw new Error('algo salio mal');
+        throw new Error('Algo salió mal');
         const {rows} = await pool.query('INSERT INTO tareas (titulo, descripcion ) VALUES ($1,$2)', [titulo, descripcion]);
-            console.log(rows);
-            res.send('Creando tarea');
+        console.log(rows);
+        res.send('Creando tarea');
     } catch (error) {
         if (error.code == '23505') {
-            return res.send('ya existe una tarea con ese titulo');
+            return res.send('Ya existe una tarea con ese titulo');
         }
         console.log(error);
         next(error);
     }
-    
-
 }
 
 export const actualizarTarea = (req, res)=> res.send('actualizando tarea unica');
