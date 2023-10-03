@@ -11,3 +11,4 @@ setInterval(function() {
     }
 }, 1000);
 console.log("ultima instruccion");
+// 7.3-instalacion de un paquete pm2 en la terminal
