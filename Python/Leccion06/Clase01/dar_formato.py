@@ -15,7 +15,7 @@ sueldo = 3000
 #mensaje_con_formato = 'nombre {} edad {} sueldo {:.2f}'.format(nombre, edad, sueldo ) #Marcador de posicion
 #print(mensaje_con_formato)
 
-mensaje = 'Nombre {0} Edad {1} Sueldo {2:.2f}'.format(nombre, edad, sueldo)
+mensaje = 'Nombre {0} Edad {1}  Sueldo {2:.2f}'.format(nombre, edad, sueldo) # 6.3 PARTE2
 print(mensaje)
 
 #6.3 parte 3
