@@ -6,9 +6,9 @@ setInterval(function() {
     console.log(i);
     i++;
     if(i === 5){
-        console.log('forzamos un error');
+        console.log('Forzamos un error');
         var a = 3 + z;
     }
 }, 1000);
-console.log("ultima instruccion");
+console.log("Última instrucción");
 // 7.3-instalacion de un paquete pm2 en la terminal
