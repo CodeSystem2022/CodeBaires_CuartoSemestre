@@ -11,6 +11,6 @@ router.post('/tareas', crearTarea);
 
 router.put('/tareas/:id', actualizarTarea);
 
-router.delete('/tareas', eliminarTarea);
+router.delete('/tareas/:id', eliminarTarea);
 
 export default router;
