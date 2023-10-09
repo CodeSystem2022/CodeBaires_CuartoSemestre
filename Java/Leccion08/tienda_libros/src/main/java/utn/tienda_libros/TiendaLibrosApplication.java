@@ -8,10 +8,10 @@ import org.springframework.context.ConfigurableApplicationContext;
 import java.EventQueue;
 
 @SpringBootApplication
-public class TiendaLibrosApplication {
+public class TiendaLibrosApplication 
 
 	public static void main(String[] args) {
-		SpringApplication.run(TiendaLibrosApplication.class, args);
+		
 	}
 		ConfigurableApplicationContext contextoSpring =
 				 new SpringApplicationBuilder(TiendaLibrosApplication.class)
@@ -20,8 +20,11 @@ public class TiendaLibrosApplication {
 					  .rum(args);
        
 //Ejecutamos el codigo para el formulario
-EventQueue.invokeLater(( )-> {
+EventQueue.invokeLater(( )-> { //Metodo Lambda
 	//obtenemos el objeto from a traves del spring
 	LibroFrom libroFrom = contextoSpring.getBean(LibroFrom.class);
-});
-}
+	LibroFrom.setVisible(true);
+    });	
+
+
+
