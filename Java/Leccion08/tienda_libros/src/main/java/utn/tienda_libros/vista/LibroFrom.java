@@ -4,13 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import utn.tienda_libros.servicio.LibroServicio;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class LibroFrom extends JFrame {
-    LibroServicio LibroServicio;
+    LibroServicio libroServicio;
     private JPanel panel;
 
     @Autowired
-    public_LibroFrom(LibroServicio libroServicio){
+    public LibroFrom(LibroServicio libroServicio){
        this.libroServicio = libroServicio;
        iniciarForma();
     }
@@ -18,8 +19,14 @@ public class LibroFrom extends JFrame {
     private void iniciarForma(){
         setContentPane(panel);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        SetVisible(true);
+        setVisible(true);
         setSize(900, 700);
+        // Para obtener las dimensiones de la ventana
+        Toolkit toolkit = Toolkit.getDefaultToolkit();
+        Dimension tamanioPantalla = toolkit.getScreenSize();
+        int x = (tamanioPantalla.width - getWidth()/2);
+        int y = (tamanioPantalla.height - getHeight()/2);
+        setLocation(x, y);
     }
 }
 
