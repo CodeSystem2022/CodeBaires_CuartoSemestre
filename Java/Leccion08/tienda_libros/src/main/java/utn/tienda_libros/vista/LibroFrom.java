@@ -12,7 +12,7 @@ import java.awt.*;
 public class LibroFrom extends JFrame {
     LibroServicio libroServicio;
     private JPanel panel;
-    private JTable tablalibros;
+    private JTable tablaLibros;
     private DefaultTableModel tablaModeloLibros;
 
     @Autowired
@@ -39,7 +39,7 @@ public class LibroFrom extends JFrame {
         String[] cabecera = {"Id", "Libro", "Autor", "Precio", "Existencias"};
         this.tablaModeloLibros.setColumnIdentifiers(cabecera);
         //Instanciar el objeto de JTable
-        this.tablalibros = new JTable(tablaModeloLibros);
+        this.tablaLibros = new JTable(tablaModeloLibros);
         listarLibros();
     }
 
