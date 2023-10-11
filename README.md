@@ -37,8 +37,8 @@ Se detalla los Scrum Master asignados para cada Sprint
 | :computer: Sprint_5  | Maia Strusiat | [Release_Sprint5](https://github.com/CodeSystem2022/CodeBaires_CuartoSemestre/releases/tag/Sprint_5)
 | :computer: Sprint_6  | Matías Quispe | [Release_Sprint6](https://github.com/CodeSystem2022/CodeBaires_CuartoSemestre/releases/tag/Sprint_6)
 | :computer: Sprint_7  | Deisy Ortega  | [Release_Sprint7](https://github.com/CodeSystem2022/CodeBaires_CuartoSemestre/releases/tag/Sprint_7)
-| :computer: Sprint_8  | Yamila Carlucci |
-| :computer: Sprint_9  |  |
+| :computer: Sprint_8  | Yamila Carlucci | [Release_Sprint8](https://github.com/CodeSystem2022/CodeBaires_CuartoSemestre/releases/tag/Sprint_8)
+| :computer: Sprint_9  | Yamila Carlucci |
 | :computer: Sprint_10 |  |
 | :computer: Sprint_11 |  |
 
