@@ -1,9 +1,10 @@
 import  Router  from "express-promise-router";
 import { listarTareas, listarTarea, crearTarea, actualizarTarea, eliminarTarea } from "../controllers/tareas.controller.js";
+import {isAuth} from "../middlewares/auth.middleware.js"
 
 const router = Router();
 
-router.get('/tareas', listarTareas);
+router.get('/tareas', isAuth, listarTareas);
 
 router.get('/tareas/:id', listarTarea);
 
