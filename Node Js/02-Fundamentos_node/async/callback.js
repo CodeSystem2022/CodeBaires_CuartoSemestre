@@ -8,6 +8,20 @@ function hola(nombre, miCallback){// Le pasamos el parametro como funcion
     
 }
 
+function hablar(callbackHablar){
+    setTimeout( function  () => {
+        console.log('bla bla bla bla');
+        callbackHablar();
+}, 1000);
+}            
+
+
+
+
+
+    
+        console.log('Adios '+ nombre)
+
 function adios(nombre, otroCallback){
     setTimeout(function () {
         console.log('Adios '+nombre);
@@ -15,7 +29,7 @@ function adios(nombre, otroCallback){
     },1500);
 }
 
-
+//--Preoceso principal
 console.log('Iniciando el proceso...');
 hola('Carlos', function(nombre) { // Le pasammos el parametro y la función
     adios(nombre, function(){
@@ -24,8 +38,6 @@ hola('Carlos', function(nombre) { // Le pasammos el parametro y la función
     });
 });
 
-//hola('Carlos', function(){});
-//adios('Carlos', function(){});  
 
 
 
