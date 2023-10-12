@@ -32,12 +32,15 @@ function adios(nombre, otroCallback){
 //--Preoceso principal
 console.log('Iniciando el proceso...');
 hola('Carlos', function(nombre) { // Le pasammos el parametro y la función
-    adios(nombre, function(){
-            console.log('Terminando el proceso...');
-
+    hablar(function() {
+        hablar(function){
+            hablar(function() {
+                hablar(function() {
+                   adios(nombre,function (){
+                       console.log('terminando el proceso...')
+                   });
+                });
+            });    
+        });
     });
-});
-
-
-
-
+});    
