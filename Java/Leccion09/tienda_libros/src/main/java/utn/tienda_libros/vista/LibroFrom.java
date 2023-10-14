@@ -62,6 +62,3 @@ public class LibroFrom extends JFrame {
         });
     }
 }
-
-
-
