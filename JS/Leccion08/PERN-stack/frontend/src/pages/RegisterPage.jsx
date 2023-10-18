@@ -1,5 +1,6 @@
 import { Button, Card, Input } from "../components/ui";
 import { useForm } from "react-hook-form";
+
 function RegisterPage() {
 
   const { register, handleSubmit, formState: { errors } } = useForm();
