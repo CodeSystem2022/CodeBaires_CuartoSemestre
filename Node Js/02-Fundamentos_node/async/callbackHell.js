@@ -34,16 +34,17 @@ console.log('Iniciando el proceso...');
 hola('Ariel', function(nombre){
     conversacion(nombre, 4, function(){
         console.log('Terminando el proceso...');
-    })
+    });
 });
-//hola('Carlos', function(nombre) { // Le pasammos el parametro y la función
-    //hablar(function() {
 
-        //hablar(function){
-           // hablar(function() {
-                //hablar(function() {
-                //   adios(nombre,function (){
-              //         console.log('terminando el proceso...')
+//callback hell -> bienvenidos al infierno
+//hola('Carlos', function(nombre) { 
+//   hablar(function() {
+//      hablar(function){
+//         hablar(function() {
+//           hablar(function() {
+//               adios(nombre,function (){
+//                       console.log('terminando el proceso...')
            //        });
          //       });
        //     });    
