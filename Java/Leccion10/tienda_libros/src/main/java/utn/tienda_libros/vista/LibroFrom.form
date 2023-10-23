@@ -29,7 +29,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="e14a8" class="javax.swing.JTable" binding="tablaLibros">
+          <component id="e14a8" class="javax.swing.JTable" binding="tablaLibros" custom-create="true">
             <constraints/>
             <properties/>
           </component>
