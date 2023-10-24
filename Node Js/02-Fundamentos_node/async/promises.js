@@ -1,8 +1,8 @@
 function hola(nombre){
-    return new Promise(function(resolver, reject){
+    return new Promise(function(resolve, reject){
         setTimeout(function () {
             console.log('Hola '+nombre);
-            resolver(nombre);
+            resolve(nombre);
         },1000);  
     });
     
@@ -19,10 +19,11 @@ function hablar(nombre){
 
 
 function adios(nombre, ){
-    return new Promise((resolver, reject) =>{      
+    return new Promise((resolve, reject) =>{      
         setTimeout(function (){
             console.log('Adios '+ nombre);
-            resolver();
+           // resolver();
+           reject ('Hay un Error ')
           }, 1000);
     })
 }
@@ -36,4 +37,9 @@ hola("ariel")
     .then(adios) //.then nos retorna un valor
     .then((nombre)=> {
         console.log("Terminamos el proceso");
+    })
+    .catch(error => {
+        console.log("Ha habido un error");
+        console.log(error);
+
     })
