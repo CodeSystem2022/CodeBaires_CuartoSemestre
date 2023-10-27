@@ -1,4 +1,4 @@
-function hola (nombre){
+async function hola (nombre){
     return new Promise (function (resolve,reject) {
         setTimeout( function () {
             console.log('hola'+nombre);
@@ -26,19 +26,11 @@ function adios(nombre) {
         }, 1000);
     });
 }
-                
-//llamamos a la funcion
-console.log("Iniciando el proceso...");
-hola("ariel")
-    .then(hablar)
-    .then(hablar)
-    .then(hablar)
-    .then(adios) //.then nos retorna un valor
-    .then((nombre)=> {
-        console.log("Terminamos el proceso");
-    })
-    .catch(error => {
-        console.log("Ha habido un error");
-        console.log(error);
 
-    })
+//await hola('Ariel'); // esto es una mala sintaxis
+
+async function main (){
+    await hola('Ariel');
+}
+
+main();
