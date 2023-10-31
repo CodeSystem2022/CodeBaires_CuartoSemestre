@@ -7,7 +7,17 @@ function RegisterPage() {
 
   const onSubmit = handleSubmit((data) => {
     console.log(data);
-  });
+    const response = await fetch("http://localhost:3001/api/auth/register", {
+      method: "POST",
+      body:JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      }});
+      const json = await response.json();
+      console.log(json);
+
+    });
+  
 
   return (
     <div className="h-[calc(100vh-64px)] flex items-center justify-center">
