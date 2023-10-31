@@ -4,6 +4,7 @@ import AboutPage from './pages/AboutPage'
 import LoginPage from './pages/LoginPage'
 import ProfilePage from './pages/ProfilePage'
 import RegisterPage from './pages/RegisterPage'
+import NotFound from './pages/NotFound'
 import TareaFormPage from './pages/TareaFormPage'
 import TareasPage from './pages/TareasPage'
 
@@ -18,6 +19,7 @@ function App(){
       <Route path="/tareas" element={<TareasPage/>}/>
       <Route path="/tareas/crear" element={<TareaFormPage/>}/>
       <Route path="/tareas/editar/:id" element={<TareaFormPage/>}/>
+      <Route path="*" element={<NotFound/>}/>
     </Routes>
   )
 }
