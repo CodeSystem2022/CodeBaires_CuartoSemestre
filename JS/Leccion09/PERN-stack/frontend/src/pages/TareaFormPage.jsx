@@ -15,6 +15,7 @@ function TareaFormPage() {
 
   const onSubmit = handleSubmit(async (data) => {
     try {
+      // eslint-disable-next-line no-unused-vars
       const res = await crearTareaRequest(data);
       navigate("/tareas");
     } catch (error) {
@@ -35,7 +36,7 @@ function TareaFormPage() {
         <h2 className="text-3xl font-bold my-4">Formulario de tareas</h2>
         <form onSubmit={onSubmit}>
           <Label htmlFor="titulo">Titulo</Label>
-          <Input type="text" placeholder="Titulo" 
+          <Input type="text" placeholder="Titulo"
           autoFocus {
             ...register("titulo", {required: true})
           }
