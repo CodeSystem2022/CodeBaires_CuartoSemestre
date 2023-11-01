@@ -1,4 +1,4 @@
-import {Card, Input, Button, Label} from "../components/ui";
+import {Card, Input, Button, Label, Container} from "../components/ui";
 import { useForm } from "react-hook-form";
 import{Link, useNavigate} from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
@@ -6,16 +6,25 @@ import { useAuth } from "../context/AuthContext";
 
 function LoginPage() {
   const { register, handleSubmit} = useForm();
-  const {signin} = useAuth();
+  const {signin, errors} = useAuth();
   const {navigate} = useNavigate();
   const onSubmit = handleSubmit(async(data) => {
-    await signin(data);
-    navigate("/perfil");
+    const user = await signin(data);
+    if (user){
+      navigate("/perfil");
+    }
   });
 
   return (
-    <div className="h-[calc(100vh-64px)] flex items-center justify-center">
+    <Container className="h-[calc(100vh-10rem)] flex items-center justify-center">
       <Card>
+        {
+          errors && 
+            errors.map((error) => {
+              <p className="bg-red-500 text-white p-2">{error}</p>
+          })
+        }
+
         <h1 className="text-4xl font-bold my-2 text-center">Iniciar Sesión</h1>
         <form onSubmit={onSubmit}>
           <Label htmlFor="email">Email</Label>
@@ -37,7 +46,7 @@ function LoginPage() {
           <Link to="/register">Registrate</Link>
         </div>
       </Card>
-    </div>
+    </Container>
   )
 }
 

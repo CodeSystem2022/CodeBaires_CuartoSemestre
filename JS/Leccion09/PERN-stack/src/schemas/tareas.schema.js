@@ -1,6 +1,6 @@
-import {z} from Zod;
+import { z } from 'zod';
 
-const createTareasSchema = z.object({
+export const createTareasSchema = z.object({
     titulo: z.string({
         required_error: "El título es requerido",
         invalid_type_error: "El título debe ser un string",
@@ -19,7 +19,7 @@ const createTareasSchema = z.object({
     }).optional(),
 });
 
-const updateTareasSchema = z.object({
+export const updateTareasSchema = z.object({
     titulo: z.string({
         required_error: "El título es requerido",
         invalid_type_error: "El título debe ser un string",

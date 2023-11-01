@@ -1,6 +1,6 @@
-import {z} from Zod;
+import { z } from 'zod';
 
-const signupSchema = z.object({
+export const signupSchema = z.object({
     name: z.string({
         required_error: "El nombre es requerido",
         invalid_type_error: "El nombre debe ser un string",
@@ -27,7 +27,7 @@ const signupSchema = z.object({
     }),
 });
 
-const signinSchema = z.object({
+export const signinSchema = z.object({
     name: z.string({
         required_error: "El nombre es requerido",
         invalid_type_error: "El nombre debe ser un string",
