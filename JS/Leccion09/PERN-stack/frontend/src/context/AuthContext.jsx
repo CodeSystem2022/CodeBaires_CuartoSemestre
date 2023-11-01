@@ -46,7 +46,22 @@ export function AuthProvider({children}) {
             }
         setErrors([error.response.data.message]);
         }
-    }
+    };
+
+    const singout = async (data) => {
+        try{
+            const res = await axios.post("/signout", data);
+                setUser(null);
+                setIsAuth(false);
+            return res.data;
+        } catch(error){
+            console.log(error);
+            if(Array.isArray(error.response.data)){
+                return setErrors(error.response);
+            }
+        setErrors([error.response.data.message]);
+        }
+    };
 
         useEffect(() => {
             if (Cookie.get('token')){
@@ -69,6 +84,7 @@ export function AuthProvider({children}) {
         signup,
         signin,
         setUser,
+        singout
     }}>
         {children}
     </AuthContext.Provider>
