@@ -19,7 +19,6 @@ nav{
     justify-content: space-between;
     color:$primary-text-color;
     padding: 15px;
-
     p{
         font-size: 1.5;
         padding-left: 30px ;
@@ -43,44 +42,89 @@ main{
         color:$primary-text-color;
         display:flex;
         justify-content: space-around;
-    
+
         .info-section{
             display: flex;
             flex-direction: column;
             padding-top: 50px,;
             gap: 25px;
         }
-    
+        img{
+            width: 25vw;
+            border-radius: 19px;
+        }
         h1{
             font-size: 3em;
             padding: 0px;
             margin: 0px;
         }
-    
         p{
             font-size:$paragraph-size ;
-
-            button{
-                width: 12vw;
-                padding: 20px;
-                background-color:$quaternary-color;
-                background: none;
-                border-style: none;
-                border-radius: 35px;
-                color:white
-                font-size 1em;
-            }
         }
-            
+        button{
+            width: 12vw;
+            padding: 20px;
+            background-color:$quaternary-color;
+            background: none;
+            border-style: none;
+            border-radius: 35px;
+            color:white
+            font-size 1em;
+        }
+    }
+    h2{
+        color:$primary-color;
+        font-size: 2em;
+    }
+    .section1{
+        h2{
+            font-weight: 300;
+            padding-bottom: 60px;
+        }
         img{
-           width: 25vw;
-           border-radius: 19px;
+            width: 12vh;
+            height: 30vh;
+            object-fit:cover;
+            border-radius: 6px;
         }
-    
+        .card-section1{
+            display: flex;
+            width: auto;
+            height: auto;
+            justify-content: center;
+            align-items: center;
+            column-gap: 200px;
+            row-gap: 200px;
+            .product-card{
+                width: 14vw;
+                height: 45vh;
+                background-color: $secundary-color;
+                color:$primary-text-color;
+                padding: 20px;
+                border-radius: 8px;
+                .icons{
+                    width: 100%;
+                    display: flex;
+                    justify-content: flex-end;
+                    padding-bottom: 12px;
+                    svg{
+                        width: 28px;
+                        height: 28px;
+                        stroke: olive;
+                        stroke-width: yellow;
+                    }
+                }
+                .product-image{
+                    width: 12vh;
+                height: 30vh;
+                object-fit:cover;
+                border-radius: 6px;
+                }
+            }
+            
+        }
     }
 }
-
-
 
 footer{
     $background: rgb(199,116,20);
@@ -88,4 +132,3 @@ footer{
     width: 100%;
     height:250px;
 }
-

@@ -40,6 +40,10 @@ main article .info-section {
   padding-top: 50px;
   gap: 25px;
 }
+main article img {
+  width: 25vw;
+  border-radius: 19px;
+}
 main article h1 {
   font-size: 3em;
   padding: 0px;
@@ -48,7 +52,7 @@ main article h1 {
 main article p {
   font-size: 1, 5em;
 }
-main article p button {
+main article button {
   width: 12vw;
   padding: 20px;
   background-color: orange;
@@ -57,9 +61,57 @@ main article p button {
   border-radius: 35px;
   color: white font-size 1em;
 }
-main article img {
-  width: 25vw;
-  border-radius: 19px;
+main h2 {
+  color: rgb(90, 89, 28);
+  font-size: 2em;
+}
+main .section1 h2 {
+  font-weight: 300;
+  padding-bottom: 60px;
+}
+main .section1 img {
+  width: 12vh;
+  height: 30vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 6px;
+}
+main .section1 .card-section1 {
+  display: flex;
+  width: auto;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  -moz-column-gap: 200px;
+       column-gap: 200px;
+  row-gap: 200px;
+}
+main .section1 .card-section1 .product-card {
+  width: 14vw;
+  height: 45vh;
+  background-color: rgb(224, 124, 31);
+  color: rgb(63, 38, 1);
+  padding: 20px;
+  border-radius: 8px;
+}
+main .section1 .card-section1 .product-card .icons {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 12px;
+}
+main .section1 .card-section1 .product-card .icons svg {
+  width: 28px;
+  height: 28px;
+  stroke: olive;
+  stroke-width: yellow;
+}
+main .section1 .card-section1 .product-card .product-image {
+  width: 12vh;
+  height: 30vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 6px;
 }
 
 footer {
