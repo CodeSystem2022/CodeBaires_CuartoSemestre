@@ -18,7 +18,6 @@ function TareaFormPage() {
     if (res){
       navigate("/tareas");
     }
-    
   });
 
   return (

@@ -1,15 +1,11 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Outlet } from "react-router-dom";
+
 import { Container } from "./components/ui";
-
 import { ProtectedRoute } from "./components/ProtectedRoutes";
-
 import { useAuth } from "./context/AuthContext";
 import { TareasProvider } from "./context/TareasContext";
 
-import { Routes, Route, Oulet } from "react-router-dom";
-
 import Navbar from "./components/navbar/Navbar";
-
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import LoginPage from "./pages/LoginPage";

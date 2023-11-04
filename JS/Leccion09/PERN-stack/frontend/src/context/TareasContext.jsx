@@ -1,11 +1,10 @@
-import { creatContext, useState, useContext } from "react";
-import {listarTareasRequest, eliminarTareaRequest,crearTareaRequest } from "../api/tareas.api";
+import { createContext, useState, useContext } from "react";
+import {listarTareasRequest, eliminarTareaRequest, crearTareaRequest } from "../api/tareas.api";
 
 const TareasContext = createContext();
 
 export const useTareas = () => {
     const context = useContext(TareasContext);
-
     if (!context) {
         throw new Error("useTareas debe estar dentro del proveedor TareasProvider");
     }
@@ -13,12 +12,13 @@ export const useTareas = () => {
     return context;
 };
 
+// eslint-disable-next-line react/prop-types
 export const TareasProvider = ({ children }) => {
     const [tareas, setTareas] = useState([]);
-    const [errors, setError] = useState([]);
+    const [error, setError] = useState([]);
 
-    const cargarTarea = async () => {
-        const res = await listarTareasRequest()
+    const cargarTareas = async () => {
+        const res = await listarTareasRequest();
         setTareas(res.data);
     };
 
@@ -34,23 +34,28 @@ export const TareasProvider = ({ children }) => {
         }
       };
 
-
-
-
-    const eliminarTarea = async (id) => {
+      const eliminarTarea = async (id) => {
         const res = await eliminarTareaRequest(id);
         if (res.status === 204) {
             setTareas(tareas.filter((tarea) => tarea.id !== id));
           }
-    };  
+    };
 
-return (
-    <TareasContext.Provider value={{
-        tareas,
-        caragarTareas,
-        eliminarTarea,
-        crearTarea,
-    }}>
-        {children}
-    </TareasContext.Provider>
-);
+      return (
+        <TareasContext.Provider value={{
+            tareas,
+            cargarTareas,
+            eliminarTarea,
+            crearTarea,
+            error,
+        }}>
+            {children}
+        </TareasContext.Provider>
+    );
+  };
+
+
+
+
+    
+
