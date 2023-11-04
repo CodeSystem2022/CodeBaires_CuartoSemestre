@@ -1,16 +1,14 @@
-import { useEffect, useState } from "react"
-import { obtenerTareasRequest } from "../api/tareas.api"
+import { useEffect } from "react"
 import { CardTareas } from "../components/tareas/CardTareas";
+import {useTareas} from "../context/TareasContext";
 
 function TareasPage() {
-  const[tareas, setTareas] = useState([]);
-
+  const {tareas, cargarTareas} = useTareas();
+  
+ 
   useEffect(() => {
-    obtenerTareasRequest().then((response) => {
-      setTareas(response.data);
-      console.log(response.data);
-    });
-  }, []);
+    cargarTareas()
+   }, []);
 
   return (
     <div className="grid grid-cols-3 gap-2">{

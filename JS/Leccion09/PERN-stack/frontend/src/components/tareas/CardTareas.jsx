@@ -1,10 +1,12 @@
 /* eslint-disable react/prop-types */
 
 import { Card, Button } from "../ui";
-import { eliminarTareaRequest } from "../../api/tareas.api";
+import { useTareas } from "../../context/TareasContext";
 
 
 export function CardTareas({tarea}) {
+    const { eliminarTarea } = useTareas();
+
     return (
         <Card key={tarea.id} className="py-2 px-7">
             <div>
@@ -16,8 +18,7 @@ export function CardTareas({tarea}) {
                 <Button className="bg-red-500 hover:bg-red-600"
                 onClick={async() => {
                     if(window.confirm("¿Estás seguro de eliminar esta tarea?")){
-                        const res = await eliminarTareaRequest(tarea.id);
-                        console.log(res);
+                        await eliminarTarea(tarea.id); 
                     }
                     }}
                 >Eliminar</Button>
