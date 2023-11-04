@@ -6,6 +6,20 @@ $primary-text-color: rgb(63,38,1);
 $font-stack: 'IBM Plex Sans', 'sans-serif';
 $paragraph-size: 1,5em;
 
+@mixin flexCenter($direction,$content,$align){
+    display: flex;
+    flex-direction:$direction;
+    justify-content: $content;
+    align-item: $align;
+}
+
+@mixin buttonStyle{
+    button {
+        background: none;
+        border-style: none;
+    }
+}
+
 body{
     background-color: rgb(241,208,115);
     margin: 0;
@@ -26,10 +40,7 @@ nav{
     .icons{
         display: flex;
         gap: 15px;
-        button {
-           background: none;
-           border-style: none;
-        }
+        @include buttonStyle;
     }
 }
 
@@ -40,8 +51,10 @@ main{
     article{
         width: auto;
         color:$primary-text-color;
-        display:flex;
-        justify-content: space-around;
+        @include flexCenter(row,space-between,center);
+        padding-left: 45px;
+        padding-right: 45px;
+        padding-top: 70px;
 
         .info-section{
             display: flex;
@@ -72,58 +85,79 @@ main{
             font-size 1em;
         }
     }
-    h2{
-        color:$primary-color;
-        font-size: 2em;
-    }
-    .section1{
+    section{
+        width: auto;
+        height: auto;
+        background-color: rgb(214, 201, 176);
+        padding: 60px;
+
         h2{
-            font-weight: 300;
-            padding-bottom: 60px;
+            color:$primary-text-color;
+            font-size: 2em;
         }
-        img{
-            width: 12vh;
-            height: 30vh;
-            object-fit:cover;
-            border-radius: 6px;
-        }
-        .card-section1{
-            display: flex;
-            width: auto;
-            height: auto;
-            justify-content: center;
-            align-items: center;
-            column-gap: 200px;
-            row-gap: 200px;
-            .product-card{
-                width: 14vw;
-                height: 45vh;
-                background-color: $secundary-color;
-                color:$primary-text-color;
-                padding: 20px;
-                border-radius: 8px;
-                .icons{
-                    width: 100%;
-                    display: flex;
-                    justify-content: flex-end;
-                    padding-bottom: 12px;
-                    svg{
-                        width: 28px;
-                        height: 28px;
-                        stroke: olive;
-                        stroke-width: yellow;
-                    }
-                }
-                .product-image{
-                    width: 12vh;
-                height: 30vh;
-                object-fit:cover;
-                border-radius: 6px;
-                }
+
+        .section1{
+        
+            h2{
+                font-weight: 300;
+                padding-bottom: 60px;
+                font-family: $font-stack;
+                color:white;
+    
             }
-            
+            .card-section1{
+                display: flex;
+                width: auto;
+                height: auto;
+                justify-content: center;
+                align-items: center;
+                column-gap: 200px;
+                row-gap: 200px;
+                
+                .product-card{
+                    width: 14vw;
+                    height: 50vh;
+                    background-color: $secundary-color;
+                    color:$primary-text-color;
+                    padding: 20px;
+                    border-radius: 8px;
+                    .icons{
+                        width: 100%;
+                        display: flex;
+                        justify-content: flex-start;
+                        padding-bottom: 12px;
+                        svg{
+                            width: 28px;
+                            height: 28px;
+                            stroke: olive;
+                            stroke-width: yellow;
+                        }
+                    }
+                    img{
+                        width: 30vh;
+                        height: 30vh;
+                        object-fit:cover;
+                        border-radius: 6px;
+                        display: flex;
+                        align-self: center;
+                    }
+                    
+                }
+                
+            }
+        }
+        .section2{
+    
+            @extend .section1;
+            .card-section1{
+                .product-card{
+                    background-color: $tertiary-color;
+                    color:rgb(37, 51, 12);
+                 }
+            }
         }
     }
+    
 }
 
 footer{
