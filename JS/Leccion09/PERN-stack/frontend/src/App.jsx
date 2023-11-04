@@ -16,7 +16,11 @@ import TareaFormPage from "./pages/TareaFormPage";
 import TareasPage from "./pages/TareasPage";
 
 function App() {
-  const { isAuth } = useAuth();
+  const { isAuth, loading } = useAuth();
+  if(loading){
+    return <h1>Cargando...</h1>;
+  }
+  
   return (
     <>
       <Navbar />

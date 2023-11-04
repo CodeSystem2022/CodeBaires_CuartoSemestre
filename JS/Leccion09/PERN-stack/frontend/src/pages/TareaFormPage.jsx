@@ -1,7 +1,7 @@
 import { Card, Input, Textarea, Label, Button } from "../components/ui";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect} from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { useTareas } from "../context/TareasContext";
 
 function TareaFormPage() {
@@ -9,10 +9,11 @@ function TareaFormPage() {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
   } = useForm();
+  const params = useParams();
   const navigate = useNavigate();
-  const [postError, setPostError] = useState([]);
-  const { crearTarea } = useTareas();
+  const { crearTarea, cargarTarea, errors:TareasErrors} = useTareas();
   const onSubmit = handleSubmit(async (data) => {
     const res = await crearTarea(data);
     if (res){
@@ -20,15 +21,23 @@ function TareaFormPage() {
     }
   });
 
+  useEffect(() => {
+    if (params.id) {
+      cargarTarea(params.id).then((tarea) =>
+        setValue("titulo", tarea.titulo),
+        // eslint-disable-next-line no-undef
+        setValue("descripcion", tarea.descripcion)
+      );
+    }
+  })
+
   return (
     <div className="flex h-[80vh] justify-center items-center">
       <Card>
-        {postError.map((error, i) => (
-          <p className="bg-red-500 text-white p-2" key={i}>
-            {error}{" "}
-          </p>
+        {TareasErrors.map((error, i) => (
+          <p className="bg-red-500 text-white p-2" key={i}>{error}{" "}</p>
         ))}
-        <h2 className="text-3xl font-bold my-4">Formulario de tareas</h2>
+        <h2 className="text-3xl font-bold my-4">{params.id ? "Editar Tarea" : "Crear Tarea"}</h2>
         <form onSubmit={onSubmit}>
           <Label htmlFor="titulo">Titulo</Label>
           <Input
@@ -49,7 +58,9 @@ function TareaFormPage() {
             {...register("descripcion")}
           ></Textarea>
 
-          <Button>Guardar</Button>
+          <Button>
+            {params.id ? "Aceptar" : "Guardar"}
+          </Button>
         </form>
       </Card>
     </div>
