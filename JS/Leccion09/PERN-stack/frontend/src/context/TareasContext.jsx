@@ -1,10 +1,11 @@
 import { createContext, useState, useContext } from "react";
-import {listarTareasRequest, 
-      eliminarTareaRequest, 
-      crearTareaRequest, 
-      actualizarTareaRequest,
+import { 
+      eliminarTareaRequest,
+      obtenerTareasRequest, 
+      crearTareaRequest,
       listarTareaRequest,
-     } from "../api/tareas.api";
+      actualizarTareaRequest,
+      } from "../api/tareas.api";
 
 const TareasContext = createContext();
 
@@ -24,7 +25,7 @@ export const TareasProvider = ({ children }) => {
     const [errors, setError] = useState([]);
 
     const cargarTareas = async () => {
-        const res = await listarTareasRequest();
+        const res = await obtenerTareasRequest();
         setTareas(res.data);
     };
 

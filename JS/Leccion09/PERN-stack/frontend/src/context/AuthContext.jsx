@@ -77,9 +77,17 @@ export function AuthProvider({children}) {
                     setIsAuth(false);
                     setLoading(false);
                     console.log(error);
-                })
+                });
             }
+            setLoading(false);
         }, []);
+
+        useEffect(() => {
+            const timeout = setTimeout(() => {
+                setErrors(null);
+            }, 4000);
+            return() => clearTimeout(timeout);
+        }, [errors]);
 
     return <AuthContext.Provider value={{
         user,
