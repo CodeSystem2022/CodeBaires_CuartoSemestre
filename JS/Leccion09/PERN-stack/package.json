@@ -2,14 +2,14 @@
   "name": "pern-stack",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.js",
+  "main": "backend/index.js",
   "type": "module",
   "scripts": {
     "dev": "nodemon .",
     "start": "node ."
   },
   "keywords": [],
-  "author": "",
+  "author": "CodeBaires",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
