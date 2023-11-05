@@ -2,6 +2,7 @@
 import { Card, Button } from "../ui";
 import { useTareas } from "../../context/TareasContext";
 import { Navigate } from "react-router-dom";
+import {PiTrashSimpleLight} from "react-icons/pi"
 
 
 export function CardTareas({tarea}) {
@@ -9,10 +10,10 @@ export function CardTareas({tarea}) {
     const navigate = Navigate();
 
     return (
-        <Card key={tarea.id} className="py-2 px-7">
+        <Card key={tarea.id} className="py-2 px-7 justify-center flex flex-col">
             <div>
                 <h1 className="text-2xl font-bold">{tarea.titulo}</h1>
-                <p>{tarea.descripcion}</p>
+                <p className="py-4">{tarea.descripcion}</p>
             </div>
             <div className="flex justify-end gap-x-2"> 
                 <Button
@@ -24,7 +25,10 @@ export function CardTareas({tarea}) {
                         await eliminarTarea(tarea.id);
                     }
                     }}
-                >Eliminar</Button>
+                    
+                >
+                    <PiTrashSimpleLight className="text-white"/>
+                    eliminar</Button>
                 </div>
         </Card>
     );

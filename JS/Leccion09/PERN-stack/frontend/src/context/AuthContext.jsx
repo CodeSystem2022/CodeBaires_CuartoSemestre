@@ -77,8 +77,9 @@ export function AuthProvider({children}) {
                     setIsAuth(false);
                     setLoading(false);
                     console.log(error);
-                })
+                });
             }
+            setLoading(false);
         }, []);
 
     return <AuthContext.Provider value={{

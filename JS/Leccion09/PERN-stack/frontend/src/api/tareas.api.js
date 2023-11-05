@@ -6,7 +6,7 @@ export const obtenerTareasRequest = () => {axios.get("/tareas");}
 
 export const eliminarTareaRequest = () => (id) => axios.delete(`/tareas/${id}`);
 
-export const listarTareaTareaRequest = () => (id) => axios.get(`/tareas/${id}`);
+export const listarTareaRequest = () => (id) => axios.get(`/tareas/${id}`);
 
 export const actualizarTareaRequest = () => (id, tarea) => axios.put(`/tareas/${id}`, tarea);
 
