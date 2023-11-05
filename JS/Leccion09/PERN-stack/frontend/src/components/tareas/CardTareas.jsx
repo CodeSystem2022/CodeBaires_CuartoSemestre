@@ -2,7 +2,7 @@
 import { Card, Button } from "../ui";
 import { useTareas } from "../../context/TareasContext";
 import { Navigate } from "react-router-dom";
-import {PiTrashSimpleLight} from "react-icons/pi"
+import {PiTrashSimpleLight, PiPencil} from "react-icons/pi"
 
 
 export function CardTareas({tarea}) {
@@ -18,7 +18,8 @@ export function CardTareas({tarea}) {
             <div className="flex justify-end gap-x-2"> 
                 <Button
                     onClick={() => navigate(`/tareas/${tarea.id}/editar`)}
-                >Editar</Button>
+                ><PiPencil className="text-white"/>
+                    Editar</Button>
                 <Button className="bg-red-500 hover:bg-red-600"
                 onClick={async() => {
                     if(window.confirm("¿Estás seguro de eliminar esta tarea?")){
