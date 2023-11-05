@@ -1,5 +1,10 @@
 import { createContext, useState, useContext } from "react";
-import {listarTareasRequest, eliminarTareaRequest, crearTareaRequest, listarTareaRequest } from "../api/tareas.api";
+import {listarTareasRequest, 
+      eliminarTareaRequest, 
+      crearTareaRequest, 
+      actualizarTareaRequest,
+      listarTareaRequest,
+     } from "../api/tareas.api";
 
 const TareasContext = createContext();
 
@@ -11,6 +16,7 @@ export const useTareas = () => {
 
     return context;
 };
+
 
 // eslint-disable-next-line react/prop-types
 export const TareasProvider = ({ children }) => {
@@ -39,11 +45,22 @@ export const TareasProvider = ({ children }) => {
         }
       };
 
-      const eliminarTarea = async (id) => {
+    const eliminarTarea = async (id) => {
         const res = await eliminarTareaRequest(id);
         if (res.status === 204) {
             setTareas(tareas.filter((tarea) => tarea.id !== id));
           }
+    };
+
+    const editarTarea = async (id, tarea) => {
+      try {
+        const res = await actualizarTareaRequest(id, tarea);
+        return res.data;
+      } catch (error) {
+        if (error.response) {
+          setError([error.response.data.message]);
+        }
+      }
     };
 
       return (
@@ -53,6 +70,7 @@ export const TareasProvider = ({ children }) => {
             eliminarTarea,
             crearTarea,
             cargarTarea,
+            editarTarea,
             errors,
         }}>
             {children}

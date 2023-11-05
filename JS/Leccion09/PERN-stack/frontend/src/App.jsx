@@ -18,7 +18,10 @@ import TareasPage from "./pages/TareasPage";
 function App() {
   const { isAuth, loading } = useAuth();
   if(loading){
-    return <h1>Cargando...</h1>;
+    setTimeout(() => {
+      return <h1>Cargando...</h1>;
+    }, 1000)
+    
   }
   
   return (

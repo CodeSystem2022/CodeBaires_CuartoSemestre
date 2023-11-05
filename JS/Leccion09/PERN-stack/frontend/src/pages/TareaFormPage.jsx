@@ -13,10 +13,13 @@ function TareaFormPage() {
   } = useForm();
   const params = useParams();
   const navigate = useNavigate();
-  const { crearTarea, cargarTarea, errors:TareasErrors} = useTareas();
+  const { crearTarea, cargarTarea, editarTarea, errors:TareasErrors} = useTareas();
   const onSubmit = handleSubmit(async (data) => {
-    const res = await crearTarea(data);
-    if (res){
+     if (!params.id) {
+      await crearTarea(data);
+      navigate("/tareas");
+    } else {
+      await editarTarea(params.id, data);
       navigate("/tareas");
     }
   });
