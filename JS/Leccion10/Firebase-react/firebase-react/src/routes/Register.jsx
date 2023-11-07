@@ -32,13 +32,13 @@ const Register = () => {
     <form onSubmit={handleSubmit}>
         <input
           type="email"
-          placeholder="Ingrese email"
+          placeholder="Ingrese su email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
       <input
         type="password"
-        placeholder="Ingrese contraseña"
+        placeholder="Ingrese su contraseña"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         />

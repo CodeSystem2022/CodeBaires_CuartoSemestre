@@ -12,13 +12,15 @@ function App() {
       <Navbar /> {/*Renderiza el componente "Navbar", que probablemente representa la barra de navegación de la aplicación. */}
       <h1>APP</h1> {/*Rederiza un título o encabezado en la página */}
       <Routes> {/*Define un conjunto de rutas utilizando el componente "Routes" de React Router. */}
+        {" "}
         {/* Definición de una ruta */}
         <Route
-        path="/"
-        element={
-          <RequireAuth>
-            <Home /> {/*Renderiza el componente "Home" si el usuario ha iniciado sesión. */}
-          </RequireAuth>
+          path="/"
+          element={
+            <RequireAuth>
+              {" "}
+              <Home /> {" "}
+            </RequireAuth>
         }
         />
         {/* Definición de otra ruta */}
