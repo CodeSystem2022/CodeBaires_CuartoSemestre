@@ -2,6 +2,7 @@ import {Routes, Route} from "react-router-dom"; //Importa los componentes necesa
 
 import Login from "./routes/Login"; // Importa el componente "Login" desde el archivo "Login.jsx"
 import Home from "./routes/Home"; // Importa el componente "Home" desde el archivo "Home.jsx"
+import Register from "./routes/Register";
 import Navbar from "./components/Navbar"; // Importa el componente "Navbar" desde el archivo "Navbar.js"
 import RequireAuth from "./components/RequireAuth"; // Importa el componente "RequireAuth" desde el archivo "RequireAuth.js"
 
@@ -22,6 +23,7 @@ function App() {
         />
         {/* Definición de otra ruta */}
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </>
   );
