@@ -80,7 +80,7 @@ const Home = () => {
 
   return (
     <>
-      <Title text="Administrator URLs" /> 
+      <Title text="Administrator URLs" />
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <FormInput

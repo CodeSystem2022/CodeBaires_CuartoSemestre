@@ -1,13 +1,11 @@
 /* eslint-disable no-undef */
 // Importación de dependencias
-import { useContext } from "react"; // Importa React y el hook useContext desde la biblioteca "react".
-import { UserContext } from "../context/UserProvider"; // Importa el contexto UserContext desde un archivo llamado "UserProvider.js" en un directorio "context".
-import { useNavigate } from "react-router-dom"; // Importa el hook useNavigate desde "react-router-dom".
-import { useForm } from "react-hook-form"; // Importa el hook useForm de la biblioteca "react-hook-form".
-import { useState } from "react"; // Importa el hook useState de la biblioteca "react".
-//import { erroresFirebase } from "../utils/erroresFirebase"; // Importa una función de utilidad para manejar errores relacionados con Firebase.
+import { useContext, useState } from "react";
+import { UserContext } from "../context/UserProvider";
+import { Link, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import { formValidates } from "../utils/formValidates"; // Importa funciones de validación para el formulario.
-import { Link } from "react-router-dom";
+
 
 // Importación de componentes personalizados
 import FormError from "../components/FormError"; // Importa un componente para mostrar errores del formulario.
@@ -40,7 +38,7 @@ const Login = () => {
             await loginUser(email, password);
 
             // Redirige al usuario a la página de inicio (ruta "/") después de iniciar sesión exitosamente.
-            navigate("/home");
+            navigate("/Home");
         } catch (error) {
             console.log(error.code); // En caso de error, muestra el código del error en la consola.
             setError(code, { message }); // Crear un error en el formulario (code es el nombre del error y message es el mensaje del error)
@@ -80,9 +78,10 @@ const Login = () => {
                 >
                     <FormError error={errors.password} /> {/* Muestra errores relacionados con el campo de contraseña. */}
                 </FormInput>
-                <Button text="Iniciar Sesión" type="submit" />
                 {/* Botón de inicio de sesión o indicador de carga según el estado "loading" */}
-                <Button type="submit" text="Iniciar Sesión" color="blue" loading={loading} />
+                <Button type="submit" text="Iniciar Sesión" color="purple" loading={loading} onClick={handleSubmit} />
+              
+
 
             </form>
             <p className="my-4 text-sm flex justify-between px-3">

@@ -6,15 +6,13 @@ import Login from "./routes/Login";
 import Home from "./routes/Home";
 import Register from "./routes/Register";
 import Perfil from "./routes/Perfil";
-import NotFound from "./routes/NotFound";   
-import Inicio from "./routes/Inicio"; 
+import NotFound from "./routes/NotFound";
+import Inicio from "./routes/Inicio";
 
 import LayoutContainerForm from "./components/layouts/LayoutContainerForm";
 import LayoutRequireAuth from "./components/layouts/LayoutRequireAuth";
 import Navbar from "./components/Navbar";
-
-
-
+import LayoutRedirect from "./components/layouts/LayoutRedirect";
 
 const App = () => {
   const { user } = useContext(UserContext);
@@ -24,7 +22,8 @@ const App = () => {
 
   return (
     <>
-      <Navbar /> {/* Utiliza el componente Navbar aquí */}
+      <Navbar />
+      {/* <NavbarSuper /> */}
       <Routes>
         <Route index element={<Inicio />} />
 
@@ -41,8 +40,9 @@ const App = () => {
           <Route path="/register" element={<Register />} />
         </Route>
 
-        <Route path="*" element={<NotFound />}></Route>
-
+        <Route path="/:nanoid" element={<LayoutRedirect />}>
+          <Route index element={<NotFound />} />
+        </Route>
       </Routes>
     </>
   );
