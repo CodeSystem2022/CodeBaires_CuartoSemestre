@@ -1,12 +1,19 @@
-import { Routes, Route } from "react-router-dom"; // Importa los componentes necesarios de React Router para definir rutas en la aplicación.
-
-import Login from "./routes/Login"; // Importa el componente "Login" desde el archivo "Login.js".
-import Home from "./routes/Home"; // Importa el componente "Home" desde el archivo "Home.js".
-import Register from "./routes/Register"; // Importa el componente "Register" desde el archivo "Register.js".
-import Navbar from "./components/Navbar"; // Importa el componente "Navbar" desde el archivo "Navbar.js".
-import RequireAuth from "./components/RequireAuth"; // Importa el componente "RequireAuth" desde el archivo "RequireAuth.js".
-import { useContext } from "react";
+import { Routes, Route } from "react-router-dom";
 import { UserContext } from "./context/UserProvider";
+import { useContext } from "react";
+
+import Login from "./routes/Login";
+import Home from "./routes/Home";
+import Register from "./routes/Register";
+import Perfil from "./routes/Perfil";
+import NotFound from "./routes/NotFound";   
+import Inicio from "./routes/Inicio"; 
+
+import LayoutContainerForm from "./components/layouts/LayoutContainerForm";
+import LayoutRequireAuth from "./components/layouts/LayoutRequireAuth";
+import Navbar from "./components/Navbar";
+
+
 
 
 const App = () => {
@@ -17,29 +24,25 @@ const App = () => {
 
   return (
     <>
-      <Navbar />{" "}
-      {/* Renderiza el componente "Navbar", que probablemente representa la barra de navegación de la aplicación. */}
-      <h1>APP</h1>
-      {/* Renderiza un título o encabezado en la página.*/}
+      <Navbar /> {/* Utiliza el componente Navbar aquí */}
       <Routes>
-        {" "}
-        {/*Define un conjunto de rutas utilizando el componente "Routes" de React Router.*/}
-        {/* Definición de una ruta */}
-        <Route
-          path="/"
-          element={
-            <RequireAuth>
-              {" "}
-              {/*Envuelve el componente "Home" con "RequireAuth". Puede utilizarse para requerir autenticación antes de mostrar la página "Home".*/}
-              <Home />{" "}
-              {/*Renderiza el componente "Home" cuando la ruta coincide con "/"*/}
-            </RequireAuth>
-          }
-        />
-        {/* Definición de otra ruta */}
-        <Route path="/login" element={<Login />} />{" "}
-        {/* Define la ruta "/login" y renderiza el componente "Login" cuando la ruta coincide.*/}
-        <Route path="/register" element={<Register />} />
+        <Route index element={<Inicio />} />
+
+        <Route path="/" element={<LayoutRequireAuth />}>
+          <Route path="Home" element={<Home />} /> {/*agregue el home*/}
+          {/* <Route index element={<Home />} cambio el inicio a inicio y no a home */}
+          <Route path="perfil" element={<Perfil />} />
+        </Route>
+
+        <Route path="/" element={<LayoutContainerForm />}>
+          {/* Definición de otra ruta */}
+          <Route path="/login" element={<Login />} />
+          {/* Define la ruta "/login" y renderiza el componente "Login" cuando la ruta coincide.*/}
+          <Route path="/register" element={<Register />} />
+        </Route>
+
+        <Route path="*" element={<NotFound />}></Route>
+
       </Routes>
     </>
   );
