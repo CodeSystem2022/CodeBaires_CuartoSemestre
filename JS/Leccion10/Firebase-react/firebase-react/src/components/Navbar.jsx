@@ -1,40 +1,65 @@
-import { useContext } from "react"; // Importa la función "useContext" de la biblioteca React para acceder a un contexto.
-import { NavLink } from "react-router-dom"; // Importa el componente "NavLink" de React Router para la navegación.
-import { UserContext } from "../context/UserProvider"; // Importa el contexto "UserContext" desde el archivo "UserProvider.js".
+import { useContext } from "react";
+import { NavLink, Link } from "react-router-dom";
+import { UserContext } from "../context/UserProvider";
 
+// Componente Navbar
 const Navbar = () => {
-    const { user, signOutUser } = useContext(UserContext); // Utiliza "useContext" para acceder a "UserContext" y obtener el estado del usuario y la función para establecerlo.
+    // Obtiene el contexto del usuario
+    const { user, signOutUser } = useContext(UserContext);
 
+    // Controlador de evento para cerrar sesión
     const handleClickLogout = async () => {
         try {
-            await signOutUser(); // Llama a la función "signOutUser" para cerrar la sesión del usuario.
-            console.log("Usuario deslogueado");
+            await signOutUser();
         } catch (error) {
             console.log(error.code);
         }
-    }
+    };
+
+    // Clases CSS reutilizables para los botones
+    const classButtonBlue =
+        "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3  dark:bg-blue-600 dark:hover-bg-blue-700 dark:focus:ring-blue-800";
+
+    const classButtonRed =
+        "text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3  dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800";
 
     return (
-        <div>
-             
-            {user ? ( 
-                //  Renderiza contenido condicional en función del estado del usuario.
-                <>
-                    {/* Muestra un enlace "Inicio" que redirige a la página principal.             */}
-                    <NavLink to="/">Inicio</NavLink> 
-                    {/* Muestra un botón "Logout" que, al hacer clic, llama a la función "setUser" para cerrar la sesión. */}
-                    <button onClick={handleClickLogout}>Cerrar Sesion </button>
-                </>
-            ) : (
-                <>
-                {/* Si el usuario no está autenticado, muestra un enlace "Login" que redirige a la página de inicio de sesión. */}
-                <NavLink to="/login">Login  </NavLink> 
-                <NavLink to="/register">Registro  </NavLink> 
-                </>
-
-            )}
-        </div>
+        <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
+            <div className="container flex flex-wrap justify-between items-center mx-auto">
+                <Link to="/" className="flex items-center">
+                    <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
+                        Documentación de Ingreso UTN San Rafael
+                    </span>
+                </Link>
+                <div className="flex md:order-2">
+                    {user ? (
+                        // Si el usuario está autenticado
+                        <>
+                            <NavLink to="/Home" className={classButtonBlue}>
+                                Inicio
+                            </NavLink>
+                            <button
+                                onClick={handleClickLogout}
+                                className={classButtonRed}
+                            >
+                                Cerrar sesión
+                            </button>
+                        </>
+                    ) : (
+                        // Si el usuario no está autenticado
+                        <>
+                            <NavLink to="/login" className={classButtonBlue}>
+                                Inicio de Sesión
+                            </NavLink>
+                            <NavLink to="/register" className={classButtonBlue}>
+                                Registro
+                            </NavLink>
+                        </>
+                    )}
+                </div>
+            </div>
+        </nav>
     );
 };
 
-export default Navbar; 
+export default Navbar;
