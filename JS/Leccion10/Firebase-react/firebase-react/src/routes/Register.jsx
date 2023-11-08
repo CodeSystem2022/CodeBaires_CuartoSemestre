@@ -14,7 +14,6 @@ import FormInput from "../components/FormInput"; // Importa un componente para l
 import Title from "../components/Title"; // Importa un componente para mostrar un título en la página.
 import Button from "../components/Button"; // Importa un componente para mostrar un botón en la página.
 
-
 // Componente de Registro
 const Register = () => {
     const navigate = useNavigate(); // Obtiene la función de navegación desde react-router-dom.
@@ -40,7 +39,7 @@ const Register = () => {
             await registerUser(email, password);
 
             // Redirige al usuario a la página de inicio (ruta "/") después de registrar exitosamente.
-            navigate("/home");
+            navigate("/Home");
         } catch (error) {
             console.log(error.code); // En caso de error, muestra el código del error en la consola.
             const { code, message } = erroresFirebase(error.code);
@@ -54,7 +53,6 @@ const Register = () => {
     return (
         <>
             <Title text="Registro" />
-            <FormError error={errors.firebase} /> {/* Muestra errores relacionados con Firebase. */}
             <form onSubmit={handleSubmit(onSubmit)}>
                 <FormInput
                     type="email"
@@ -94,9 +92,9 @@ const Register = () => {
                 >
                     <FormError error={errors.repassword} /> {/* Muestra errores relacionados con el campo de confirmación de contraseña. */}
                 </FormInput>
-                <Button text="Registro" type="submit" />
                 {/* Botón de inicio de sesión o indicador de carga según el estado "loading" */}
-                <Button type="submit" text="Iniciar Sesión" color="blue" loading={loading} />
+                <Button type="submit" text="Registrarse" color="purple" loading={loading} onClick={handleSubmit} />
+
             </form>
             <p className="my-4 text-sm flex justify-between px-3">
                 Volver a la página de  inico
