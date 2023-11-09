@@ -42,7 +42,7 @@ Se detalla los Scrum Master asignados para cada Sprint
 | :computer: Sprint_10 | Yamila Carlucci | [Release Sprint10](https://github.com/CodeSystem2022/CodeBaires_CuartoSemestre/releases/tag/Sprint_10)
 | :computer: Sprint_11 | Yamila Carlucci| [Release_Sprint11](https://github.com/CodeSystem2022/CodeBaires_CuartoSemestre/releases/tag/Sprint_11)
 | :computer: Sprint_12 | Yamila Carlucci| [Release_Sprint12](https://github.com/CodeSystem2022/CodeBaires_CuartoSemestre/releases/tag/Sprint_12)
-| :computer: Sprint_13 | Yamila Carlucci| 
+| :computer: Sprint_13 | Yamila Carlucci| [Release_Sprint13](https://github.com/CodeSystem2022/CodeBaires_CuartoSemestre/releases/tag/Sprint_13)
 
 # Metodología de trabajo
 
